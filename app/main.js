@@ -1,14 +1,13 @@
 const { app, BrowserWindow } = require("electron");
-const path = require("path");
 
 function createWindow() {
   const mainWindow = new BrowserWindow({
-    width: 800,
+    width: 400,
+    maxWidth: 400,
     height: 600,
+    maxHeight: 600,
+    // frame: false,
     icon: __dirname + "/public/icon.ico",
-    webPreferences: {
-      preload: path.join(__dirname, "preload.js"),
-    },
   });
 
   mainWindow.loadURL("http://localhost:3000");

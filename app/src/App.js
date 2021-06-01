@@ -21,6 +21,31 @@ export default class App extends Component {
     theme_type: "dark",
   };
 
+  componentDidMount() {
+    let cached_theme = localStorage.getItem("cached_theme");
+    if (cached_theme === null) {
+      this.setState({
+        theme: createMuiTheme({
+          palette: {
+            type: "dark",
+          },
+        }),
+        theme_type: "dark",
+      });
+
+      localStorage.setItem("cached_theme", "dark");
+    } else {
+      this.setState({
+        theme: createMuiTheme({
+          palette: {
+            type: cached_theme,
+          },
+        }),
+        theme_type: cached_theme,
+      });
+    }
+  }
+
   toggle_theme = () => {
     this.setState({
       theme:
@@ -37,6 +62,11 @@ export default class App extends Component {
             }),
       theme_type: this.state.theme_type === "dark" ? "light" : "dark",
     });
+
+    localStorage.setItem(
+      "cached_theme",
+      this.state.theme_type === "dark" ? "light" : "dark"
+    );
   };
 
   render() {

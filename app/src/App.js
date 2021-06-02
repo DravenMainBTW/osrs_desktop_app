@@ -7,6 +7,7 @@ import CssBaseline from "@material-ui/core/CssBaseline";
 import Navbar from "./components/common/navbar";
 
 import Home from "./components/homepage";
+import History from "./components/history";
 import ViewItem from "./components/view_item_page";
 
 import "./main.css";
@@ -82,7 +83,8 @@ export default class App extends Component {
             />
             <div className="content">
               <Switch>
-                <Route path={"/"} component={Home} />
+                <Route exact path={"/"} component={Home} />
+                <Route path={"/history"} component={History} />
                 <Route path={"/view_item/:id"} component={ViewItem} />
               </Switch>
             </div>

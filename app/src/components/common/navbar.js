@@ -11,6 +11,7 @@ import {
 import MenuIcon from "@material-ui/icons/Menu";
 import NightsStayIcon from "@material-ui/icons/NightsStay";
 import WbSunnyIcon from "@material-ui/icons/WbSunny";
+import { Link } from "react-router-dom";
 
 export default class navbar extends Component {
   state = { openMenu: null, anchorEl: null, count: 0, setCount: 0 };
@@ -19,12 +20,8 @@ export default class navbar extends Component {
     this.setState({ openMenu: true, anchorEl: event.currentTarget });
   };
 
-  handleClose = (type = null, link = null) => {
-    console.log(type, link);
-    if (type !== null) {
-    } else {
-      this.setState({ openMenu: null, anchorEl: null });
-    }
+  handleClose = () => {
+    this.setState({ openMenu: null, anchorEl: null });
   };
 
   render() {
@@ -59,6 +56,8 @@ export default class navbar extends Component {
                 }}
               >
                 <MenuItem
+                  component={Link}
+                  to="/"
                   onClick={() => {
                     this.handleClose();
                   }}
@@ -66,6 +65,8 @@ export default class navbar extends Component {
                   Home
                 </MenuItem>
                 <MenuItem
+                  component={Link}
+                  to="/history"
                   onClick={() => {
                     this.handleClose();
                   }}
@@ -74,7 +75,7 @@ export default class navbar extends Component {
                 </MenuItem>
                 <MenuItem
                   onClick={() => {
-                    this.handleClose("exit");
+                    this.handleClose();
                   }}
                 >
                   Exit App

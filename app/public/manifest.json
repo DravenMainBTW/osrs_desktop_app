@@ -1,7 +1,12 @@
 {
   "short_name": "OSRS App",
   "name": "Old School RuneScape App",
-  "icons": [],
+  "icons": [
+    {
+      "src": "cash_stack.ico",
+      "type": "image/x-icon"
+    }
+  ],
   "start_url": ".",
   "display": "standalone",
   "theme_color": "#000000",

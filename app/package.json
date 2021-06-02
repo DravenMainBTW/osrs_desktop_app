@@ -1,5 +1,6 @@
 {
-  "name": "app",
+  "name": "osrs_app",
+  "author": "DravenMainBTW",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -9,7 +10,7 @@
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
     "concurrently": "^6.2.0",
-    "electron": "^13.0.1",
+    "electron-is-dev": "^2.0.0",
     "node-sass": "^6.0.0",
     "npm-run-all": "^4.1.5",
     "react": "^17.0.2",
@@ -19,15 +20,36 @@
     "wait-on": "^5.3.0",
     "web-vitals": "^1.0.1"
   },
-  "main": "main.js",
+  "main": "./public/electron.js",
+  "build": {
+    "productName": "OSRS App",
+    "appId": "org.osrs-app",
+    "files": [
+      "/node_modules/**/*"
+    ],
+    "win": {
+      "target": "nsis",
+      "icon": "build/cash_stack.ico"
+    },
+    "nsis": {
+      "installerIcon": "build/cash_stack.ico",
+      "uninstallerIcon": "build/cash_stack.ico",
+      "allowElevation": false,
+      "allowToChangeInstallationDirectory": true,
+      "oneClick": false,
+      "perMachine": true,
+      "uninstallDisplayName": "OSRS App"
+    }
+  },
+  "homepage": "./",
   "scripts": {
     "sass-build": "node-sass ./src/sass/main.scss -o ./src",
     "sass": "node-sass -w ./src/sass/main.scss -o ./src",
     "start": "react-scripts start",
     "start-el": "concurrently \"SET BROWSER=none && npm-run-all -p sass-build sass start \" \"wait-on http://localhost:3000 && electron .\"",
-    "build": "react-scripts build",
-    "pack": "electron-builder --dir",
+    "react-build": "react-scripts build",
     "dist": "electron-builder",
+    "build": "yarn react-build && yarn dist",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
@@ -50,6 +72,7 @@
     ]
   },
   "devDependencies": {
+    "electron": "^13.0.1",
     "electron-builder": "^22.10.5"
   }
 }

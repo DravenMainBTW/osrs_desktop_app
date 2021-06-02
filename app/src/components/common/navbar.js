@@ -63,14 +63,14 @@ export default class navbar extends Component {
                     this.handleClose();
                   }}
                 >
-                  Profile
+                  Home
                 </MenuItem>
                 <MenuItem
                   onClick={() => {
                     this.handleClose();
                   }}
                 >
-                  My account
+                  Search History
                 </MenuItem>
                 <MenuItem
                   onClick={() => {

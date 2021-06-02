@@ -80,10 +80,12 @@ export default class App extends Component {
                 this.toggle_theme();
               }}
             />
-            <Switch>
-              <Route path={"/"} component={Home} />
-              <Route path={"/view_item/:id"} component={ViewItem} />
-            </Switch>
+            <div className="content">
+              <Switch>
+                <Route path={"/"} component={Home} />
+                <Route path={"/view_item/:id"} component={ViewItem} />
+              </Switch>
+            </div>
           </CssBaseline>
         </ThemeProvider>
       </React.Fragment>

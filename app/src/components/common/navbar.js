@@ -75,7 +75,7 @@ export default class navbar extends Component {
                 </MenuItem>
                 <MenuItem
                   onClick={() => {
-                    this.handleClose();
+                    window.close();
                   }}
                 >
                   Exit App

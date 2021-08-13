@@ -29,7 +29,7 @@ export default class navbar extends Component {
       <AppBar position="fixed" color="default">
         <Toolbar>
           <Grid
-            justify="space-between"
+            justifyContent="space-between"
             container
             style={{
               display: "flex",

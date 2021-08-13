@@ -1,4 +1,4 @@
-# OSRS Desktop App
+# OSRS Desktop App (W.I.P)
 Made with Electron and React. Fetches data from the OSRS grand exchange API and displays to the user. Can be exported to a windows program using "electron-builder".
 
 # Install And Setup

@@ -83,7 +83,7 @@ export default class navbar extends Component {
               </Menu>
             </Grid>
             <Grid item>
-              <Typography variant="h6">OSRS App</Typography>
+              <Typography variant="h5">OSRS App</Typography>
             </Grid>
             <Grid item>
               {this.props.theme === "light" ? (

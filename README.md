@@ -5,7 +5,7 @@ Made with Electron and React. Fetches data from the OSRS grand exchange API and 
 This install assumes you are using yarn, if you are instead using NPM look up their verion of the commands.
 
 ```
-git clone https://github.com/DravenMainBTW/osrs_desktop_app.git
+git clone https://github.com/daniel-j-crewe/osrs_desktop_app.git
 cd app
 yarn install
 ```

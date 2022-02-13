@@ -1,12 +1,5 @@
-import React, { Component } from "react";
-import { Container } from "@material-ui/core";
+import React from "react";
 
-export default class index extends Component {
-  render() {
-    return (
-      <Container maxWidth="sm">
-        <p></p>
-      </Container>
-    );
-  }
+export default function Index() {
+  return <div>view item</div>;
 }

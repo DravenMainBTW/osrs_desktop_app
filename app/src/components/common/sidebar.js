@@ -1,5 +1,10 @@
 import React, { useState } from "react";
-import { FolderIcon, HomeIcon, CashIcon } from "@heroicons/react/outline";
+import {
+  FolderIcon,
+  HomeIcon,
+  CashIcon,
+  SearchIcon,
+} from "@heroicons/react/outline";
 import { useNavigate } from "react-router-dom";
 
 function classNames(...classes) {
@@ -9,8 +14,14 @@ function classNames(...classes) {
 const navigation = [
   { name: "Home", href: "/", icon: HomeIcon, current: true },
   {
-    name: "Search History",
-    href: "/history",
+    name: "Search",
+    href: "/search",
+    icon: SearchIcon,
+    current: false,
+  },
+  {
+    name: "Hi-Scores Search",
+    href: "/hi-scores",
     icon: FolderIcon,
     current: false,
   },

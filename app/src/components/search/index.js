@@ -1,0 +1,60 @@
+import React, { useEffect, useState } from "react";
+import api from "../../actions/api";
+
+export default function Index() {
+  const [search, setSearch] = useState("");
+  const [itemList, setItemList] = useState([]);
+
+  useEffect(() => {
+    if (search) {
+      api.items.search(search).then((res) => {
+        setItemList(res.data);
+      });
+    } else {
+      setItemList([]);
+    }
+  }, [search]);
+
+  return (
+    <div className="search-content">
+      <div className=" relative border border-gray-300 rounded-md px-3 py-2 shadow-sm focus-within:ring-1 focus-within:ring-gray-800 focus-within:border-gray-800">
+        <label
+          htmlFor="name"
+          className="absolute -top-2 left-2 -mt-px inline-block px-1 bg-white text-xs font-medium text-gray-900"
+        >
+          Grand Exchange Search
+        </label>
+        <input
+          type="text"
+          name="search"
+          className="block w-full border-0 p-0 text-gray-900 placeholder-gray-500 focus:ring-0 sm:text-sm"
+          placeholder="Search The Grand Exchange"
+          onChange={(e) => {
+            setSearch(e.target.value);
+          }}
+        />
+      </div>
+      <br />
+      <div className="grid grid-cols-1 gap-4 sm:grid-cols-1">
+        {itemList.map((item, index) => (
+          <div
+            key={index}
+            className="relative rounded-lg border border-gray-300 bg-white px-6 py-5 shadow-sm flex items-center space-x-3 hover:border-gray-400 focus-within:ring-1 focus-within:ring-gray-800 focus-within:border-gray-800"
+          >
+            <div className="flex-1 min-w-0">
+              <a href="#" className="focus:outline-none">
+                <span className="absolute inset-0" aria-hidden="true" />
+                <p className="text-sm font-medium text-gray-900">
+                  {item.title}
+                </p>
+                <p className="text-sm text-gray-500 truncate">
+                  {item.description}
+                </p>
+              </a>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}

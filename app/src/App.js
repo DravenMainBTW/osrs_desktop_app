@@ -17,10 +17,10 @@ export default function App() {
       <div className="md:pl-64 flex flex-col">
         <main className="flex-1 main">
           <Routes>
-            <Route exact path={"/"} element={<Home />} />
+            <Route path={"/"} element={<Home />} />
             <Route path={"/search"} element={<Search />} />
-            <Route path={"/view_item/:id"} element={<ViewItem />} />
             <Route path={"/hi-scores"} element={<HiScores />} />
+            <Route path={"/view_item/:id"} element={<ViewItem />} />
           </Routes>
         </main>
       </div>

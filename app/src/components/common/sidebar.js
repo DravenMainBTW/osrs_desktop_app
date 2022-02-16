@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import {
-  FolderIcon,
+  ChartBarIcon,
   HomeIcon,
   CashIcon,
   SearchIcon,
@@ -22,7 +22,7 @@ const navigation = [
   {
     name: "Hi-Scores Search",
     href: "/hi-scores",
-    icon: FolderIcon,
+    icon: ChartBarIcon,
     current: false,
   },
 ];
@@ -56,7 +56,7 @@ export default function Sidebar() {
                 onClick={(e) => {
                   e.preventDefault();
                   setCurrentSelection(index);
-                  navigate(item.href);
+                  navigate(item.href, { replace: true });
                 }}
               >
                 <item.icon

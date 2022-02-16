@@ -1,8 +1,8 @@
 import { Item } from "../models";
-import Axios from "axios";
+import axios from "axios";
 
 export default async function ItemSync() {
-  let res = await Axios.get(
+  let res = await axios.get(
     "https://prices.runescape.wiki/api/v1/osrs/mapping"
   );
 
@@ -15,6 +15,11 @@ export default async function ItemSync() {
           let new_item = await new Item({
             title: item.name.toString().toLowerCase(),
             description: item.examine,
+            members_item: item.members,
+            limit: item.limit,
+            item_value: item.value,
+            low_alch: item.lowalch,
+            high_alch: item.highalch,
             reference_id: item.id,
           });
 

@@ -20,7 +20,7 @@ db.on("error", () => {
   console.log("###########################################");
 });
 
-db.once("open", () => {
+db.once("open", async () => {
   const app = express();
 
   app.use(cors(corsOptions));
@@ -28,7 +28,7 @@ db.once("open", () => {
 
   app.use("/api", routes);
 
-  CronManager.setup(app);
+  await CronManager.setup(app);
 
   app.listen(5000, () => {
     console.log("########################");

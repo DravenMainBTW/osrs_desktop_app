@@ -18,18 +18,18 @@ export default function Index() {
   }, [search]);
 
   return (
-    <div className="search-content">
-      <div className=" relative border border-gray-300 rounded-md px-3 py-2 shadow-sm focus-within:ring-1 focus-within:ring-gray-800 focus-within:border-gray-800">
+    <div>
+      <div className="relative border border-slate-200 rounded-md px-3 py-2 shadow-sm focus-within:ring-1 focus-within:ring-slate-800 focus-within:border-slate-800">
         <label
           htmlFor="name"
-          className="absolute -top-2 left-2 -mt-px inline-block px-1 bg-white text-xs font-medium text-gray-900"
+          className="absolute -top-2 left-2 -mt-px inline-block px-1 bg-slate-600 text-xs font-medium"
         >
           Grand Exchange Search
         </label>
         <input
           type="text"
           name="search"
-          className="block w-full border-0 p-0 text-gray-900 placeholder-gray-500 focus:ring-0 sm:text-sm"
+          className="block w-full border-0 p-0 bg-inherit placeholder-slate-200 focus:ring-0 sm:text-sm"
           placeholder="Search The Grand Exchange"
           onChange={(e) => {
             setSearch(e.target.value);
@@ -41,7 +41,7 @@ export default function Index() {
         {itemList.map((item, index) => (
           <div
             key={index}
-            className="relative rounded-lg border border-gray-300 bg-white px-6 py-5 shadow-sm flex items-center space-x-3 hover:border-gray-400"
+            className="relative rounded-lg border border-slate-400 bg-slate-700 px-6 py-5 shadow-sm flex items-center space-x-3 hover:border-slate-800"
           >
             <div className="cursor-pointer flex-1 min-w-0">
               <div
@@ -51,10 +51,8 @@ export default function Index() {
                 className="focus:outline-none"
               >
                 <span className="absolute inset-0" aria-hidden="true" />
-                <p className="text-sm font-medium text-gray-900">
-                  {item.title}
-                </p>
-                <p className="text-sm text-gray-500 truncate">
+                <p className="text-sm font-medium ">{item.title}</p>
+                <p className="text-sm text-gray-400 truncate">
                   {item.description}
                 </p>
               </div>

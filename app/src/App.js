@@ -14,8 +14,8 @@ export default function App() {
   return (
     <React.Fragment>
       <Sidebar />
-      <div className="md:pl-64 flex flex-col">
-        <main className="flex-1 main">
+      <div className="md:pl-64 flex flex-col min-h-screen bg-slate-600">
+        <main className="flex-1 main text-slate-200">
           <Routes>
             <Route path={"/"} element={<Home />} />
             <Route path={"/search"} element={<Search />} />

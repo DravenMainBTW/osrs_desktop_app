@@ -1,5 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import {
+  LineChart,
+  Line,
+  CartesianGrid,
+  XAxis,
+  YAxis,
+  Tooltip,
+  ResponsiveContainer,
+} from "recharts";
 import api from "../../actions/api";
 
 export default function Index() {
@@ -20,7 +29,7 @@ export default function Index() {
         <div className="w-full grid grid-cols-1 gap-y-8 gap-x-6 items-start sm:grid-cols-12 lg:gap-x-8">
           {/* IMAGE */}
           <div className="h-full sm:col-span-2 md:col-span-3 lg:col-span-2">
-            <div className="rounded-lg bg-slate-400 overflow-hidden h-full flex justify-center">
+            <div className="rounded-lg bg-slate-500 overflow-hidden h-full flex justify-center">
               <img src={data.image_link} alt={data.title} className="m-auto" />
             </div>
           </div>
@@ -44,12 +53,24 @@ export default function Index() {
                 {data.high_alch === 1 ? "" : "s"}
               </p>
               <div className="mt-6">
-                <h4 className="sr-only">Description</h4>
                 <p className="text-sm">{data.description}</p>
               </div>
             </section>
           </div>
           {/* BODY */}
+          {/* GRAPH */}
+          {/* <div className="col-span-12">
+            <ResponsiveContainer height={400}>
+              <LineChart data={data}>
+                <Line type="monotone" dataKey="uv" stroke="#8884d8" />
+                <CartesianGrid stroke="#ccc" strokeDasharray="5 5" />
+                <XAxis dataKey="name" />
+                <YAxis />
+                <Tooltip />
+              </LineChart>
+            </ResponsiveContainer>
+          </div> */}
+          {/* GRAPH */}
         </div>
       </div>
     </div>

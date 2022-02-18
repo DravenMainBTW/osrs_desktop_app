@@ -33,9 +33,9 @@ export default function Sidebar() {
 
   return (
     <div className="md:flex md:w-64 md:flex-col md:fixed md:inset-y-0">
-      <div className="flex-1 flex flex-col min-h-0 bg-gray-800">
+      <div className="flex-1 flex flex-col min-h-0 bg-slate-800">
         <div
-          className="flex items-center h-16 flex-shrink-0 px-4 bg-gray-900 text-white font-medium select-none"
+          className="flex items-center h-16 flex-shrink-0 px-4 bg-slate-900 text-slate-200 font-medium select-none"
           style={{ WebkitAppRegion: "drag" }}
         >
           <CashIcon className="h-8 w-auto pr-1" />
@@ -49,8 +49,8 @@ export default function Sidebar() {
                 href={item.href}
                 className={classNames(
                   currentSelection === index
-                    ? "bg-gray-900 text-white"
-                    : "text-gray-300 hover:bg-gray-700 hover:text-white",
+                    ? "bg-slate-900 text-slate-200"
+                    : "text-slate-300 hover:bg-slate-700 hover:text-slate-200",
                   "group flex items-center px-2 py-2 text-sm font-medium rounded-md cursor-pointer"
                 )}
                 onClick={(e) => {
@@ -62,8 +62,8 @@ export default function Sidebar() {
                 <item.icon
                   className={classNames(
                     item.current
-                      ? "text-gray-300"
-                      : "text-gray-400 group-hover:text-gray-300",
+                      ? "text-slate-300"
+                      : "text-slate-400 group-hover:text-slate-300",
                     "mr-3 flex-shrink-0 h-6 w-6"
                   )}
                   aria-hidden="true"

@@ -3,7 +3,6 @@ import { useParams } from "react-router-dom";
 import {
   LineChart,
   Line,
-  CartesianGrid,
   XAxis,
   YAxis,
   Tooltip,
@@ -23,8 +22,15 @@ export default function Index() {
     });
   }, [params.id]);
 
+  const chart_data = [
+    { name: "Page A", uv: 400, pv: 2400, amt: 2400 },
+    { name: "Page A", uv: 1, pv: 2400, amt: 2400 },
+    { name: "Page A", uv: 444, pv: 2400, amt: 2400 },
+    { name: "Page A", uv: 356, pv: 2400, amt: 2400 },
+  ];
+
   return mountLoading === false ? (
-    <div className="flex text-base text-left transform w-full max-w-6xl">
+    <div className="flex text-base text-left transform w-full ">
       <div className="w-full relative flex items-center bg-slate-700 px-4 pt-14 pb-8 overflow-hidden shadow-2xl sm:px-6 sm:pt-8 md:p-6 lg:p-8">
         <div className="w-full grid grid-cols-1 gap-y-8 gap-x-6 items-start sm:grid-cols-12 lg:gap-x-8">
           {/* IMAGE */}
@@ -58,23 +64,26 @@ export default function Index() {
             </section>
           </div>
           {/* BODY */}
-          {/* GRAPH */}
-          {/* <div className="col-span-12">
+          {/* GRAPHS */}
+          <div className="col-span-12">
+            <h3 className="text-xl font-bold sm:pr-12">Cost Breakdown</h3>
             <ResponsiveContainer height={400}>
-              <LineChart data={data}>
-                <Line type="monotone" dataKey="uv" stroke="#8884d8" />
-                <CartesianGrid stroke="#ccc" strokeDasharray="5 5" />
+              <LineChart data={chart_data}>
+                <Line type="natural" dataKey="uv" stroke="#e2e8f0" />
                 <XAxis dataKey="name" />
                 <YAxis />
                 <Tooltip />
               </LineChart>
             </ResponsiveContainer>
-          </div> */}
-          {/* GRAPH */}
+          </div>
+          {/* GRAPHS */}
         </div>
       </div>
     </div>
   ) : (
-    <div className="">Loading</div>
+    <div class="lds-ripple">
+      <div></div>
+      <div></div>
+    </div>
   );
 }

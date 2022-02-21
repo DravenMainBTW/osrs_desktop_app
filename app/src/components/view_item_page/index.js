@@ -77,7 +77,7 @@ export default function Index() {
           <div className="col-span-12">
             <h3 className="text-l font-bold sm:pr-12">
               Current Item Price Trend (Past{" "}
-              {(data.market_data.length * 6) / 24} Days)
+              {(data.market_data.length * 24) / 24} Days)
             </h3>
             <ResponsiveContainer height={400}>
               <LineChart data={data.market_data}>
@@ -99,7 +99,8 @@ export default function Index() {
           </div>
           <div className="col-span-12">
             <h3 className="text-l font-bold sm:pr-12">
-              Units Per 6 Hours (Past {(data.market_data.length * 6) / 24} Days)
+              Units Per 6 Hours (Past {(data.market_data.length * 24) / 24}{" "}
+              Days)
             </h3>
             <ResponsiveContainer height={400}>
               <BarChart data={data.market_data}>

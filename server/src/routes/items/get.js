@@ -16,7 +16,7 @@ export default async (req, res) => {
         : "";
 
     let market_data = await axios.get(
-      `https://prices.runescape.wiki/api/v1/osrs/timeseries?timestep=6h&id=${item.reference_id}`
+      `https://prices.runescape.wiki/api/v1/osrs/timeseries?timestep=24h&id=${item.reference_id}`
     );
 
     market_data =

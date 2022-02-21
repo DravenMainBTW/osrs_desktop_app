@@ -23,7 +23,7 @@ export default async (req, res) => {
       market_data.data && market_data.data.data
         ? market_data.data.data.map((item) => {
             return {
-              Name: dayjs.unix(item.timestamp).format("DD/MM/YYYY"),
+              Name: dayjs.unix(item.timestamp).format("DD/MM/YY"),
               Volume: (item.highPriceVolume + item.lowPriceVolume) / 2,
               Price: (item.avgHighPrice + item.avgLowPrice) / 2,
             };

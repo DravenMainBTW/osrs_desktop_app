@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   ChartBarIcon,
   HomeIcon,
@@ -30,6 +30,18 @@ const navigation = [
 export default function Sidebar() {
   let navigate = useNavigate();
   let [currentSelection, setCurrentSelection] = useState(0);
+  let [mountLoading, setMountLoading] = useState(true);
+
+  useEffect(() => {
+    if (mountLoading) {
+      let current_nav_item = sessionStorage.getItem("OSRS_NAV");
+
+      if (current_nav_item !== null) {
+        setCurrentSelection(parseFloat(current_nav_item));
+      }
+      setMountLoading(false);
+    }
+  }, [mountLoading]);
 
   return (
     <div className="md:flex md:w-64 md:flex-col md:fixed md:inset-y-0">
@@ -56,6 +68,7 @@ export default function Sidebar() {
                 onClick={(e) => {
                   e.preventDefault();
                   setCurrentSelection(index);
+                  sessionStorage.setItem("OSRS_NAV", index);
                   navigate(item.href, { replace: true });
                 }}
               >

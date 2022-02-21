@@ -1,7 +1,7 @@
 import cron from "node-cron";
 import { Item } from "../models";
 
-import ItemSync from "./ItemSync";
+import ItemSync from "./item_sync";
 
 class CronManager {
   async setup() {

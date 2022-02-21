@@ -5,7 +5,7 @@ export default async (req, res) => {
     title: { $regex: new RegExp(req.query.item_name, "ig") },
   })
     .sort({ title: 1 })
-    .limit(10)
+    .limit(20)
     .lean();
 
   res.send(item);

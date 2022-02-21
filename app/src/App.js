@@ -7,6 +7,7 @@ import Home from "./components/homepage";
 import Search from "./components/search";
 import ViewItem from "./components/view_item_page";
 import HiScores from "./components/hi-scores";
+import HiScoresView from "./components/view_hi_score";
 
 import "./main.css";
 
@@ -19,7 +20,8 @@ export default function App() {
           <Routes>
             <Route path={"/"} element={<Home />} />
             <Route path={"/search"} element={<Search />} />
-            <Route path={"/hi-scores"} element={<HiScores />} />
+            <Route path={"/hi_scores"} element={<HiScores />} />
+            <Route path={"/hi_scores/:id"} element={<HiScoresView />} />
             <Route path={"/view_item/:id"} element={<ViewItem />} />
           </Routes>
         </main>

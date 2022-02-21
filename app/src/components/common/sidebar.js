@@ -14,14 +14,14 @@ function classNames(...classes) {
 const navigation = [
   { name: "Home", href: "/", icon: HomeIcon, current: true },
   {
-    name: "Search",
+    name: "Grand Exchange Search",
     href: "/search",
     icon: SearchIcon,
     current: false,
   },
   {
     name: "Hi-Scores Search",
-    href: "/hi-scores",
+    href: "/hi_scores",
     icon: ChartBarIcon,
     current: false,
   },
@@ -51,7 +51,7 @@ export default function Sidebar() {
           style={{ WebkitAppRegion: "drag" }}
         >
           <CashIcon className="h-8 w-auto pr-1" />
-          OSRS GE App
+          OSRS App
         </div>
         <div className="flex-1 flex flex-col overflow-y-auto">
           <nav className="flex-1 px-2 py-4 space-y-1">

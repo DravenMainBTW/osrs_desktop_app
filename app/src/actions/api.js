@@ -6,12 +6,16 @@ const server = _appConfig.api_server;
 
 const api = {
   items: {
-    list: () => axios.get(server + "/item"),
+    // list: () => axios.get(server + "/item"),
     get: (id) => axios.get(server + `/item/${id}`),
     search: (search = "") =>
       axios.get(server + `/item/search?item_name=${search}`),
   },
-  hi_scores: {},
+  hi_scores: {
+    get: (id) => axios.get(server + `/item/${id}`),
+    search: (search = "") =>
+      axios.get(server + `/item/search?username=${search}`),
+  },
 };
 
 export default api;

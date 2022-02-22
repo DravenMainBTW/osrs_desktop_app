@@ -1,9 +1,10 @@
 import express from "express";
 import Items from "./items";
+import HiScores from "./hi_scores";
 
 const router = express.Router();
 
-const route_array = [...Items];
+const route_array = [...Items, ...HiScores];
 
 for (let index = 0; index < route_array.length; index++) {
   const element = route_array[index];

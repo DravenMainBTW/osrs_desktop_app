@@ -1,21 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import api from "../../actions/api";
 
 export default function Index() {
   let navigate = useNavigate();
   const [search, setSearch] = useState("");
-  const [itemList, setItemList] = useState([]);
-
-  useEffect(() => {
-    if (search) {
-      api.hi_scores.search(search).then((res) => {
-        setItemList(res.data);
-      });
-    } else {
-      setItemList([]);
-    }
-  }, [search]);
+  const [userCheck, setUserCheck] = useState(null);
 
   return (
     <div>
@@ -30,37 +20,31 @@ export default function Index() {
           type="text"
           name="search"
           className="block w-full border-0 p-0 bg-inherit placeholder-slate-200 focus:ring-0 sm:text-sm"
-          placeholder="Search The Hi-Scores"
           onChange={(e) => {
             setSearch(e.target.value);
           }}
+          autoComplete="off"
         />
       </div>
-      <br />
-      <div className="grid grid-cols-1 gap-4 sm:grid-cols-1">
-        <h2 className="text-xl">Previously Queried Users</h2>
-        {itemList.map((item, index) => (
-          <div
-            key={index}
-            className="relative rounded-lg border border-slate-400 bg-slate-700 px-6 py-5 shadow-sm flex items-center space-x-3 hover:border-slate-800"
-          >
-            <div className="cursor-pointer flex-1 min-w-0">
-              <div
-                onClick={() =>
-                  navigate(`/view_hi_score/${item._id}`, { replace: true })
-                }
-                className="focus:outline-none"
-              >
-                <span className="absolute inset-0" aria-hidden="true" />
-                <p className="text-sm font-medium ">{item.title}</p>
-                <p className="text-sm text-gray-400 truncate">
-                  {item.description}
-                </p>
-              </div>
-            </div>
-          </div>
-        ))}
-      </div>
+      <button
+        type="button"
+        className="w-full mt-4 px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm bg-slate-900 hover:bg-slate-800 focus:outline-none"
+        onClick={() => {
+          if (search) {
+            api.hi_scores.search(search).then((res) => {
+              if (res.data.exist === true) {
+                navigate(`/hi_scores/${search}`, { replace: true });
+              } else {
+                setUserCheck(false);
+              }
+            });
+          } else {
+            setUserCheck(false);
+          }
+        }}
+      >
+        Check Username
+      </button>
     </div>
   );
 }

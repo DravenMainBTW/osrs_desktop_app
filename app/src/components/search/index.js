@@ -34,6 +34,7 @@ export default function Index() {
           onChange={(e) => {
             setSearch(e.target.value);
           }}
+          autoComplete="off"
         />
       </div>
       <br />

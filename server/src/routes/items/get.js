@@ -24,11 +24,19 @@ export default async (req, res) => {
         ? market_data.data.data.map((item) => {
             return {
               Name: dayjs.unix(item.timestamp).format("DD/MM/YY"),
-              Volume: (item.highPriceVolume + item.lowPriceVolume) / 2,
-              Price: (item.avgHighPrice + item.avgLowPrice) / 2,
+              VolumeHigh: item.highPriceVolume,
+              VolumeLow: item.lowPriceVolume,
+              PriceHigh: item.avgHighPrice,
+              PriceLow: item.avgLowPrice,
             };
           })
         : [];
+
+    if (req.query.days_to_view) {
+      market_data = market_data.slice(
+        Math.max(market_data.length - parseFloat(req.query.days_to_view), 1)
+      );
+    }
 
     res.send({ item, item_image, market_data });
   } catch {

@@ -4,12 +4,9 @@ const isDev = require("electron-is-dev");
 
 function createWindow() {
   const mainWindow = new BrowserWindow({
-    width: 1000,
-    minWidth: 1000,
-    maxWidth: 1000,
-    height: 600,
-    minHeight: 600,
-    maxHeight: 600,
+    width: 1280,
+    minWidth: 500,
+    height: 720,
     // frame: false,
     icon: __dirname + "/cash_stack.ico",
   });

@@ -11,6 +11,7 @@ import {
   BarChart,
 } from "recharts";
 import api from "../../actions/api";
+import Loader from "../common/loader";
 
 export default function Index() {
   const params = useParams();
@@ -19,11 +20,13 @@ export default function Index() {
   const [daysToView, setDaysToView] = useState(30);
 
   useEffect(() => {
-    api.items.get(params.id, daysToView).then((res) => {
-      setData(res);
-      setMountLoading(false);
-    });
-  }, [params.id]);
+    if (params.id && mountLoading) {
+      api.items.get(params.id, daysToView).then((res) => {
+        setData(res);
+        setMountLoading(false);
+      });
+    }
+  }, [params.id, daysToView, mountLoading]);
 
   return mountLoading === false ? (
     <div className="flex text-base text-left transform w-full ">
@@ -114,6 +117,7 @@ export default function Index() {
                 className="w-full mt-2 items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm bg-slate-900 hover:bg-slate-800 focus:outline-none"
                 onClick={() => {
                   setData({ ...data, market_data: [] });
+
                   api.items.get(params.id, daysToView).then((res) => {
                     setData(res);
                   });
@@ -180,9 +184,6 @@ export default function Index() {
       </div>
     </div>
   ) : (
-    <div className="lds-ripple">
-      <div></div>
-      <div></div>
-    </div>
+    <Loader />
   );
 }

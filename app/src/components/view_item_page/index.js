@@ -20,7 +20,7 @@ export default function Index() {
 
   useEffect(() => {
     api.items.get(params.id, daysToView).then((res) => {
-      setData(res.data);
+      setData(res);
       setMountLoading(false);
     });
   }, [params.id]);
@@ -115,7 +115,7 @@ export default function Index() {
                 onClick={() => {
                   setData({ ...data, market_data: [] });
                   api.items.get(params.id, daysToView).then((res) => {
-                    setData(res.data);
+                    setData(res);
                   });
                 }}
               >

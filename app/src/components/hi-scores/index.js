@@ -32,7 +32,7 @@ export default function Index() {
         onClick={() => {
           if (search) {
             api.hi_scores.search(search).then((res) => {
-              if (res.data.exist === true) {
+              if (res.exist === true) {
                 navigate(`/hi_scores/${search}`, { replace: true });
               } else {
                 setUserCheck(false);

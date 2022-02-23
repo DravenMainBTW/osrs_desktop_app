@@ -10,7 +10,7 @@ export default function Index() {
   useEffect(() => {
     if (search) {
       api.items.search(search).then((res) => {
-        setItemList(res.data);
+        setItemList(res);
       });
     } else {
       setItemList([]);

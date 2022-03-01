@@ -49,32 +49,30 @@ export default function Index() {
               {data.item.title[0].toUpperCase() +
                 data.item.title.substring(1, data.item.title.length)}
             </h2>
-            <section aria-labelledby="information-heading" className="mt-3">
-              <p
-                className={`text-sm font-semibold ${
-                  data.item.members_item === true
-                    ? "text-yellow-200"
-                    : "text-slate-200"
-                } pb-1`}
-              >
-                {data.item.members_item === true ? "Members" : "Free To Play"}
-              </p>
-              <p className="text-sm font-semibold pb-1">
-                Value: {data.item.item_value} coin
-                {data.item.item_value === 1 ? "" : "s"}
-              </p>
-              <p className="text-sm font-semibold pb-1">
-                Low Alch: {data.item.low_alch} coin
-                {data.item.low_alch === 1 ? "" : "s"}
-              </p>
-              <p className="text-sm font-semibold">
-                High Alch: {data.item.high_alch} coin
-                {data.item.high_alch === 1 ? "" : "s"}
-              </p>
-              <div className="mt-6">
-                <p className="text-sm">{data.item.description}</p>
-              </div>
-            </section>
+            <p
+              className={`text-sm font-semibold ${
+                data.item.members_item === true
+                  ? "text-yellow-200"
+                  : "text-slate-200"
+              } pb-1`}
+            >
+              {data.item.members_item === true ? "Members" : "Free To Play"}
+            </p>
+            <p className="text-sm font-semibold pb-1">
+              Value: {data.item.item_value} coin
+              {data.item.item_value === 1 ? "" : "s"}
+            </p>
+            <p className="text-sm font-semibold pb-1">
+              Low Alch: {data.item.low_alch} coin
+              {data.item.low_alch === 1 ? "" : "s"}
+            </p>
+            <p className="text-sm font-semibold">
+              High Alch: {data.item.high_alch} coin
+              {data.item.high_alch === 1 ? "" : "s"}
+            </p>
+            <div className="mt-6">
+              <p className="text-sm">{data.item.description}</p>
+            </div>
           </div>
           {/* BODY */}
           {/* GRAPHS */}

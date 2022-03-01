@@ -52,7 +52,7 @@ export default function Index() {
         </button>
       </form>
       {userCheck && (
-        <div className="rounded-md bg-red-50 p-4 mt-4 ">
+        <div className="rounded-md bg-red-50 p-4 mt-4">
           <div className="flex">
             <div className="flex-shrink-0">
               <XCircleIcon

@@ -10,6 +10,7 @@ export default function Index() {
 
   return (
     <div>
+      {/* FORM */}
       <form
         onSubmit={(e) => {
           e.preventDefault();
@@ -51,6 +52,8 @@ export default function Index() {
           Check Username
         </button>
       </form>
+      {/* FORM */}
+      {/* ERROR */}
       {userCheck && (
         <div className="rounded-md bg-red-50 p-4 mt-4">
           <div className="flex">
@@ -68,6 +71,7 @@ export default function Index() {
           </div>
         </div>
       )}
+      {/* ERROR */}
     </div>
   );
 }

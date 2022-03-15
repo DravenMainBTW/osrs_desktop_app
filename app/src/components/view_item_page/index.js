@@ -20,6 +20,7 @@ export default function Index() {
   const [daysToView, setDaysToView] = useState(30);
 
   useEffect(() => {
+    // Checks if it is first load and params exist then fetches data for item.
     if (params.id && mountLoading) {
       api.items.get(params.id, daysToView).then((res) => {
         setData(res);
@@ -75,7 +76,6 @@ export default function Index() {
             </div>
           </div>
           {/* BODY */}
-          {/* GRAPHS */}
           {/* GRAPH FILTERS */}
           <div className="col-span-0 md:col-span-4 lg:col-span-7 xl:col-span-8 2xl:col-span-9" />
           <div className="col-span-12 md:col-span-8 lg:col-span-5 xl:col-span-4 2xl:col-span-3">
@@ -114,6 +114,7 @@ export default function Index() {
                 type="button"
                 className="w-full mt-2 items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm bg-slate-900 hover:bg-slate-800 focus:outline-none"
                 onClick={() => {
+                  // Clears out data and refreshes with requested number of days
                   setData({ ...data, market_data: [] });
 
                   api.items.get(params.id, daysToView).then((res) => {
@@ -126,6 +127,7 @@ export default function Index() {
             </div>
           </div>
           {/* GRAPH FILTERS */}
+          {/* GRAPHS */}
           <div className="col-span-12">
             <h3 className="text-l font-bold sm:pr-12">
               Daily Item Price Trend

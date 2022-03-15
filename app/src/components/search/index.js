@@ -8,6 +8,7 @@ export default function Index() {
   const [itemList, setItemList] = useState([]);
 
   useEffect(() => {
+    // searches database with request param
     if (search) {
       api.items.search(search).then((res) => {
         setItemList(res);
@@ -19,6 +20,7 @@ export default function Index() {
 
   return (
     <div>
+      {/* FORM */}
       <div className="relative border border-slate-200 rounded-md px-3 py-2 shadow-sm focus-within:ring-1 focus-within:ring-slate-800 focus-within:border-slate-800">
         <label
           htmlFor="name"
@@ -37,7 +39,9 @@ export default function Index() {
           autoComplete="off"
         />
       </div>
+      {/* FORM */}
       <br />
+      {/* ITEM LISTING */}
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-1">
         {itemList.map((item, index) => (
           <div
@@ -61,6 +65,7 @@ export default function Index() {
           </div>
         ))}
       </div>
+      {/* ITEM LISTING */}
     </div>
   );
 }

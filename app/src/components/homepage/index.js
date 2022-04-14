@@ -9,7 +9,7 @@ export default function Index() {
           <div className="col-span-12">
             <h2 className="text-2xl font-extrabold sm:pr-12">Home</h2>
             <div className="mt-6 text-xl">
-              <p>This application currently has 2 tools available</p>
+              <p>This application currently has 2 tools available:</p>
               <p className="mt-6 text-xl">Grand Exchange Item Search</p>
               <p className="text-sm">
                 This tool allows you to search for any item on the grand

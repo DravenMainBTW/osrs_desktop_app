@@ -4,7 +4,7 @@ import { XCircleIcon } from "@heroicons/react/solid";
 import api from "../../actions/api";
 
 export default function Index() {
-  let navigate = useNavigate();
+  const navigate = useNavigate();
   const [search, setSearch] = useState("");
   const [userCheck, setUserCheck] = useState(false);
 

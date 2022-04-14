@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import api from "../../actions/api";
 
 export default function Index() {
-  let navigate = useNavigate();
+  const navigate = useNavigate();
   const [search, setSearch] = useState("");
   const [itemList, setItemList] = useState([]);
 

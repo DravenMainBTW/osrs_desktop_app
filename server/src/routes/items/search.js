@@ -1,5 +1,6 @@
 import { Item } from "../../models";
 
+// Searchs item database by search string
 export default async (req, res) => {
   const item = await Item.find({
     title: { $regex: new RegExp(req.query.item_name, "ig") },

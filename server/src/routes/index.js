@@ -2,6 +2,7 @@ import express from "express";
 import Items from "./items";
 import HiScores from "./hi_scores";
 
+// Maps endpoints into the router
 const router = express.Router();
 
 const route_array = [...Items, ...HiScores];

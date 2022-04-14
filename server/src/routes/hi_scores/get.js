@@ -1,5 +1,6 @@
 import axios from "axios";
 
+// Grabs user data from OSRS website and then remaps it to a managable format
 export default async (req, res) => {
   try {
     let user_hi_scores = await axios.get(

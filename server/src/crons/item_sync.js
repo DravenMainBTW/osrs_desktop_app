@@ -1,6 +1,7 @@
 import { Item } from "../models";
 import axios from "axios";
 
+// Grabs data from OSRS Wiki API and then converts it to how it is stored on this DB
 export default async function ItemSync() {
   let res = await axios.get(
     "https://prices.runescape.wiki/api/v1/osrs/mapping"

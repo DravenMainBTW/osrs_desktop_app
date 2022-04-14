@@ -11,6 +11,7 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
+// Nav items
 const navigation = [
   { name: "Home", href: "/", icon: HomeIcon, current: true },
   {
@@ -33,6 +34,7 @@ export default function Sidebar() {
   let [mountLoading, setMountLoading] = useState(true);
 
   useEffect(() => {
+    // On first load input session stored navigation if it exists
     if (mountLoading) {
       let current_nav_item = sessionStorage.getItem("OSRS_NAV");
 
@@ -46,6 +48,7 @@ export default function Sidebar() {
   return (
     <div className="md:flex md:w-64 md:flex-col md:fixed md:inset-y-0">
       <div className="flex-1 flex flex-col min-h-0 bg-slate-800">
+        {/* HEADER */}
         <div
           className="flex items-center h-16 flex-shrink-0 px-4 bg-slate-900 text-slate-200 font-medium select-none"
           style={{ WebkitAppRegion: "drag" }}
@@ -53,6 +56,8 @@ export default function Sidebar() {
           <CashIcon className="h-8 w-auto pr-1" />
           OSRS App
         </div>
+        {/* HEADER */}
+        {/* MAIN NAV */}
         <div className="flex-1 flex flex-col overflow-y-auto">
           <nav className="flex-1 px-2 py-4 space-y-1">
             {navigation.map((item, index) => (
@@ -86,6 +91,7 @@ export default function Sidebar() {
             ))}
           </nav>
         </div>
+        {/* MAIN NAV */}
       </div>
     </div>
   );

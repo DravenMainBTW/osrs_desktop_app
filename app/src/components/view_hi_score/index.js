@@ -10,6 +10,7 @@ export default function Index() {
   const [user, setUser] = useState({});
 
   useEffect(() => {
+    // Fetches data on load of params
     if (params.id) {
       api.hi_scores
         .get(params.id)
@@ -36,6 +37,7 @@ export default function Index() {
                 : "[ERROR]"}{" "}
               Hi-Scores
             </h2>
+            {/* HI SCORES */}
             <div className="mt-6">
               {Object.keys(user).length > 0 ? (
                 <div className="flex flex-col">
@@ -72,6 +74,7 @@ export default function Index() {
                             </tr>
                           </thead>
                           <tbody className="bg-slate-600 divide-y divide-slate-300">
+                            {/* MAPPING DATA */}
                             {Object.keys(user).map((item, index) => (
                               <tr key={index}>
                                 <td className="px-6 py-4 whitespace-nowrap">
@@ -88,6 +91,7 @@ export default function Index() {
                                 </td>
                               </tr>
                             ))}
+                            {/* MAPPING DATA */}
                           </tbody>
                         </table>
                       </div>
@@ -113,6 +117,7 @@ export default function Index() {
                 </div>
               )}
             </div>
+            {/* HI SCORES */}
           </div>
           {/* BODY */}
         </div>

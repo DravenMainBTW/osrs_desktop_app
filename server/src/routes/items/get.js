@@ -2,6 +2,7 @@ import { Item } from "../../models";
 import axios from "axios";
 import dayjs from "dayjs";
 
+// Grabs searched item image, market data and basic data and then maps it to a managable format
 export default async (req, res) => {
   try {
     let item = await Item.findOne({ _id: req.params.id });

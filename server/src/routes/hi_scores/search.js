@@ -1,5 +1,6 @@
 import axios from "axios";
 
+// Checks to see if the user exists
 export default async (req, res) => {
   try {
     let username_check = await axios.get(

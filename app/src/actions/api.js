@@ -1,7 +1,7 @@
 import axios from "axios";
 import _appConfig from "../_appConfig";
 
-// TEMP FOR TESTING
+// FOR TESTING
 const server = _appConfig.api_server;
 
 const api = {

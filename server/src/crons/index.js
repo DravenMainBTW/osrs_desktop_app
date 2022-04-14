@@ -5,6 +5,7 @@ import ItemSync from "./item_sync";
 
 class CronManager {
   async setup() {
+    // Sync if no items exist in current DB
     const item_count = await Item.countDocuments({});
 
     if (item_count === 0) {
@@ -19,6 +20,7 @@ class CronManager {
     console.log("# Starting CRONS #");
     console.log("##################");
 
+    // Every Thursday
     cron.schedule("0 0 * * 4", () => {
       ItemSync();
     });

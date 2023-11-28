@@ -11,7 +11,7 @@ const corsOptions = {
 };
 
 // Conection
-mongoose.connect(mongoDB, { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect(mongoDB);
 
 const db = mongoose.connection;
 
